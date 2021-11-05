@@ -9,9 +9,13 @@
     <style>
 
         body{
+           
+            background-color: black;
+        }
+
+        .contenedor{
             display: flex;
             justify-content: center;
-            background-color: black;
         }
 
 
@@ -22,16 +26,34 @@
             background-color: white;
         }
 
+        button{
+            font-size: 40px;
+        }
+
 
     </style>
 
 </head>
 <body>
 
-    <div class="circulo" ></div>
+    <button class="pausar">
+        Pausar
+    </button>
+
+    <button class="reproducir">
+        Reproducir
+    </button>
+
+    <div class="contenedor">
+
+        <div class="circulo" ></div>
+
+    </div>
 
     <script>
         
+        const miAnimacion = 
+
         document.querySelector('.circulo').animate
         (
             [
@@ -54,7 +76,23 @@
                 easing: 'ease-in-out'
 
             }
-        )
+        );
+
+        document
+        .querySelector(".pausar")
+        .addEventListener(
+            "click",
+            () => miAnimacion.pause()
+        );
+
+
+        document
+        .querySelector(".reproducir")
+        .addEventListener(
+            "click",
+            () => miAnimacion.play()
+        );
+
     </script>
     
 </body>
