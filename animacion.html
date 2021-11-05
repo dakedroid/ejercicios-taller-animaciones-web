@@ -27,9 +27,7 @@
             border-top: 4px solid blue;
         }
 
-        button{
-            font-size: 40px;
-        }
+
 
         #playback{
 
@@ -49,18 +47,6 @@
 </head>
 <body>
 
-    <button class="pausar">
-        Pausar
-    </button>
-
-    <button class="reproducir">
-        Reproducir
-    </button>
-
-    <button class="revertir">
-        Revertir
-    </button>
-
     <br/>
     <br/>
 
@@ -77,11 +63,11 @@
     <div id="playback">
 
         <div>
-            <input value="1" id="rango" type="range"  min="0.5" max="7" step="0.5">
+            <input value="0" id="rango" type="range"  min="0" max="1000" step="1">
         </div>
 
      
-        <div id="actual"> 1 </div>
+        <div id="actual"> 0 </div>
 
     </div>
 
@@ -103,33 +89,16 @@
 
             ],
             {
-                duration: 2000,
+                duration: 1000,
                 iterations: Infinity,
             }
         );
 
-        document
-        .querySelector(".pausar")
-        .addEventListener(
-            "click",
-            () => miAnimacion.pause()
-        );
+
+        miAnimacion.pause();
 
 
-        document
-        .querySelector(".reproducir")
-        .addEventListener(
-            "click",
-            () => miAnimacion.play()
-        );
-
-        document
-        .querySelector(".revertir")
-        .addEventListener(
-            "click",
-            () => miAnimacion.reverse()
-        );
-
+    
 
         document.getElementById("rango").addEventListener
         (
@@ -142,7 +111,7 @@
             
                 document.getElementById("actual").innerText = valor;
                 
-                miAnimacion.playbackRate = + valor;
+                miAnimacion.currentTime= + valor;
 
             } 
 
