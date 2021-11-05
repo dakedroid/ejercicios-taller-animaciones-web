@@ -31,6 +31,18 @@
             font-size: 40px;
         }
 
+        #playback{
+
+            display: flex;
+            align-items: center;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        #actual{
+            color: white;
+        }
+
 
     </style>
 
@@ -58,6 +70,21 @@
 
     </div>
 
+    <br/>
+
+    <br/>
+
+    <div id="playback">
+
+        <div>
+            <input value="1" id="rango" type="range"  min="0.5" max="7" step="0.5">
+        </div>
+
+     
+        <div id="actual"> 1 </div>
+
+    </div>
+
     <script>
         
         const miAnimacion = 
@@ -76,7 +103,7 @@
 
             ],
             {
-                duration: 1000,
+                duration: 2000,
                 iterations: Infinity,
             }
         );
@@ -102,6 +129,25 @@
             "click",
             () => miAnimacion.reverse()
         );
+
+
+        document.getElementById("rango").addEventListener
+        (
+            "input",
+            (e) => 
+            
+            {
+
+                const valor = e.target.value;
+            
+                document.getElementById("actual").innerText = valor;
+                
+                miAnimacion.playbackRate = + valor;
+
+            } 
+
+        )
+
 
     </script>
     
