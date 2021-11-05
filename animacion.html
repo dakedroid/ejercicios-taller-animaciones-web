@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bienvenidos a mi animacion...</title>
+
+    <style>
+
+        body{
+            display: flex;
+            justify-content: center;
+            background-color: black;
+        }
+
+
+        .circulo{
+            width: 200px;
+            height: 200px;
+            border-radius: 100%;
+            background-color: white;
+        }
+
+
+    </style>
+
+</head>
+<body>
+
+    <div class="circulo" ></div>
+
+    <script>
+        
+        document.querySelector('.circulo').animate
+        (
+            [
+               
+                {
+                    transform: 'translateY(0)',
+                    backgroundColor: 'red' 
+
+                },
+                {
+                    transform: 'translateY(450px)',
+                    backgroundColor: 'blue'
+                }
+
+            ],
+            {
+                duration: 1000,
+                iterations: Infinity,
+                direction: 'alternate',
+                easing: 'ease-in-out'
+
+            }
+        )
+    </script>
+    
+</body>
+</html>
