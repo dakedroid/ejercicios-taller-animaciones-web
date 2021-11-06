@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pelotas de colores</title>
+
+    <style>
+
+
+        .contenedor{
+            width: 100vm;
+            height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .pelota{
+            background-color: red;
+            border-radius: 50%;
+            width: 80px;
+            height: 80px;
+        }
+
+        .sombra{
+            background-color: rgba(0, 0, 0, 0.3);
+            width: 80px;
+            height: 20px;
+            border-radius: 50%;
+        }
+
+    </style>
+</head>
+<body>
+
+    <div class="contenedor">
+        <div>
+            <div class="pelota"></div>
+            <div class="sombra"></div>
+        </div>
+    </div>
+
+
+    <script>
+
+        const movimientosDePelota = [
+            { transform: 'translateY(0px)'},
+            {transform: 'translateY(-100)', offset: 0.35},
+            {transform: 'translateY(-120px)', offset: 0.60},
+            {transform: 'translateY(-120px)', offset: 0.70},
+            {transform: 'translateY(0px)'}
+        ];
+
+
+        const movimientosSombras = [
+            {transform: 'scale(1)'},
+            {transform: 'scale(0.35)', offset: 0.35},
+            {transform: 'scale(0.6)', offset: 0.6},
+            {transform: 'scale(0.7)', offset: 0.7},
+            {transform: 'scale(1)'}
+        ];
+
+        const miAnimacion =  
+        document
+        .querySelector('.pelota')
+        .animate(movimientosDePelota,  {
+
+            duration: 800,
+            iterations: Infinity
+
+        } );
+
+
+        const animacionSombras = 
+        document.querySelector('.sombra')
+        .animate(movimientosSombras,{
+            duration: 800,
+            iterations: Infinity
+        });
+
+
+        miAnimacion.pause();
+        animacionSombras.pause();
+
+        document.addEventListener(
+            'click',
+            () => 
+            
+            {
+                miAnimacion.play();
+                animacionSombras.play();
+            }
+        );
+
+
+    </script>
+    
+   
+
+</body>
+</html>
